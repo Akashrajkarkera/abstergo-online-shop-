@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: abstergo-deployment
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: abstergo
+  template:
+    metadata:
+      labels:
+        app: abstergo
+    spec:
+      containers:
+        - name: abstergo-app
+          image: your_docker_username/abstergo-app
+          ports:
+            - containerPort: 3000
